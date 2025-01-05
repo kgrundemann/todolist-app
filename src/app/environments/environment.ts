@@ -1,6 +1,6 @@
 export const environment = {
   production: false,
-  firebaseConfig = {
+  firebaseConfig: {
     apiKey: 'AIzaSyC_DAD4MSOjMuhmg3PS91D7IbsW2L7eNLg',
     authDomain: 'todolist-5021c.firebaseapp.com',
     projectId: 'todolist-5021c',
