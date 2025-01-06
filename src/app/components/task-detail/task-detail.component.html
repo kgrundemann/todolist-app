@@ -1,0 +1,43 @@
+<div class="container mt-4">
+  <h1>Task Detail</h1>
+  <form (ngSubmit)="updateTask()">
+    <div class="mb-3">
+      <label for="content" class="form-label">Task Title</label>
+      <input
+        type="text"
+        class="form-control"
+        id="content"
+        [(ngModel)]="task.content"
+        name="content"
+        required
+      />
+    </div>
+    <div class="mb-3">
+      <label for="dueDate" class="form-label">Due Date</label>
+      <input
+        type="text"
+        class="form-control"
+        id="dueDate"
+        [(ngModel)]="task.due.date"
+        name="dueDate"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="priority" class="form-label">Priority</label>
+      <input
+        type="number"
+        class="form-control"
+        id="priority"
+        [(ngModel)]="task.priority"
+        name="priority"
+        min="1"
+        max="4"
+        required
+      />
+    </div>
+    <button type="submit" class="btn btn-primary">Update Task</button>
+    <button type="button" class="btn btn-secondary ms-2" (click)="goBack()">
+      Back
+    </button>
+  </form>
+</div>

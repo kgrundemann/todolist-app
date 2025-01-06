@@ -1,5 +1,14 @@
 <div class="container mt-4">
   <h1>Task List</h1>
+
+  <div *ngIf="loading" class="spinner-border text-primary" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+
+  <div *ngIf="errorMessage" class="alert alert-danger mt-3">
+    {{ errorMessage }}
+  </div>
+
   <button class="btn btn-primary mb-3" [routerLink]="'/create-task'">
     Create Task
   </button>
@@ -18,11 +27,20 @@
       <tr>
         <td>{{ i + 1 }}</td>
         <td>{{ task.content }}</td>
-        <td>{{ task.due?.date | date : "dd MMMM yyyy" || "No due date" }}</td>
+        <td>
+          {{
+            task.due?.date
+              ? (task.due.date | date : "dd MMMM yyyy")
+              : "No due date"
+          }}
+        </td>
         <td>{{ task.priority }}</td>
         <td>
-          <button [routerLink]="['/task-detail', task.id]" class="btn btn-info">
+          <button [routerLink]="['/task', task.id]" class="btn btn-info">
             View Details
+          </button>
+          <button (click)="deleteTask(task.id)" class="btn btn-danger ml-2">
+            Delete
           </button>
         </td>
       </tr>

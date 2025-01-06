@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { RouterModule, Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { TodoistService } from '../../todoist.service';
+import { TodoistService } from '../../services/todoist.service';
 
 @Component({
   selector: 'app-create-task',
